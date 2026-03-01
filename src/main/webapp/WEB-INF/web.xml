@@ -29,4 +29,72 @@
         <servlet-name>AddReservationServlet</servlet-name>
         <url-pattern>/addReservation</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CalculateBillServlet</servlet-name>
+        <servlet-class>com.roomreservation.controller.CalculateBillServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CalculateBillServlet</servlet-name>
+        <url-pattern>/calculateBill</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.roomreservation.controller.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MenuServlet</servlet-name>
+        <servlet-class>com.roomreservation.controller.MenuServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MenuServlet</servlet-name>
+        <url-pattern>/menu</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>com.roomreservation.controller.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>com.roomreservation.filter.AuthFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>ViewReservationServlet</servlet-name>
+        <servlet-class>com.roomreservation.controller.ViewReservationServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ViewReservationServlet</servlet-name>
+        <url-pattern>/viewReservation</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ListReservationsServlet</servlet-name>
+        <servlet-class>com.roomreservation.controller.ListReservationsServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ListReservationsServlet</servlet-name>
+        <url-pattern>/listReservations</url-pattern>
+    </servlet-mapping>
+
 </web-app>
