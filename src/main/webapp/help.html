@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help - Reservation System</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI', Arial, sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            background: linear-gradient(135deg, #f4f7ff, #e8f0fe);
+            padding: 24px;
+            color:#111827;
+        }
+
+        .wrap{
+            width: min(980px, 100%);
+            margin: 0 auto;
+            animation: fadeIn .55s ease-in-out;
+        }
+
+        @keyframes fadeIn{
+            from{opacity:0; transform: translateY(14px);}
+            to{opacity:1; transform: translateY(0);}
+        }
+
+        .top{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:12px;
+            margin-bottom: 18px;
+        }
+
+        .title{
+            display:flex;
+            flex-direction:column;
+            gap:6px;
+        }
+
+        h1{
+            color:#1e3a8a;
+            font-size: 28px;
+            letter-spacing: .2px;
+        }
+
+        .sub{
+            color:#6b7280;
+            font-size: 14px;
+            line-height: 1.5;
+            max-width: 68ch;
+        }
+
+        .btn{
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            padding: 10px 14px;
+            border-radius: 10px;
+            background:#2563eb;
+            color:white;
+            font-weight:600;
+            text-decoration:none;
+            transition: .25s;
+            box-shadow: 0 10px 22px rgba(37,99,235,0.18);
+            white-space: nowrap;
+        }
+        .btn:hover{
+            background:#1e40af;
+            transform: translateY(-2px);
+            box-shadow: 0 14px 28px rgba(37,99,235,0.22);
+        }
+
+        .grid{
+            display:grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 14px;
+        }
+
+        .card{
+            background: #fff;
+            border-radius: 16px;
+            padding: 18px 18px 16px;
+            box-shadow: 0 18px 45px rgba(0,0,0,0.07);
+            border: 1px solid rgba(15,23,42,0.06);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+        .card:hover{
+            transform: translateY(-3px);
+            box-shadow: 0 22px 55px rgba(0,0,0,0.09);
+        }
+
+        .card h2{
+            display:flex;
+            align-items:center;
+            gap:10px;
+            color:#0f172a;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .badge{
+            width:28px;
+            height:28px;
+            border-radius: 10px;
+            display:grid;
+            place-items:center;
+            background: rgba(37,99,235,0.10);
+            border: 1px solid rgba(37,99,235,0.18);
+            color:#2563eb;
+            font-weight:800;
+            font-size: 14px;
+            flex: 0 0 28px;
+        }
+
+        ul{
+            margin-left: 18px;
+            color:#374151;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        .note{
+            margin-top: 14px;
+            background: #ffffff;
+            border: 1px dashed #cbd5e1;
+            border-left: 6px solid #2563eb;
+            border-radius: 14px;
+            padding: 14px 16px;
+            color:#475569;
+            font-size: 14px;
+            line-height: 1.6;
+            box-shadow: 0 14px 35px rgba(0,0,0,0.06);
+        }
+
+        .bottom{
+            margin-top: 16px;
+            display:flex;
+            justify-content:center;
+        }
+        .link{
+            text-decoration:none;
+            color:#2563eb;
+            font-weight:600;
+            transition:.2s;
+        }
+        .link:hover{
+            color:#1e40af;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 820px){
+            .grid{grid-template-columns: 1fr;}
+            .top{flex-direction:column; align-items:flex-start;}
+            .btn{width:100%;}
+        }
+    </style>
+</head>
+
+<body>
+<div class="wrap">
+
+    <div class="top">
+        <div class="title">
+            <h1>Help Guide (For New Staff)</h1>
+            <p class="sub">
+                This page explains how to use the Room Reservation System. Follow the steps below to login,
+                add reservations, view bookings, calculate bills and logout safely.
+            </p>
+        </div>
+
+        <a class="btn" href="menu">← Back to Menu</a>
+    </div>
+
+    <div class="grid">
+
+        <div class="card">
+            <h2><span class="badge">1</span> Login</h2>
+            <ul>
+                <li>Open the system and go to the Login page.</li>
+                <li>Enter your username and password.</li>
+                <li>Click <b>Login</b> to access the Menu.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2><span class="badge">2</span> Add Reservation</h2>
+            <ul>
+                <li>From Menu, click <b>Add Reservation</b>.</li>
+                <li>Enter Guest Name, Address, Contact No.</li>
+                <li>Select Room Type and dates.</li>
+                <li>Click <b>Save Reservation</b>.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2><span class="badge">3</span> View Reservation</h2>
+            <ul>
+                <li>From Menu, click <b>View Reservation</b>.</li>
+                <li>Enter Reservation ID and click <b>Search</b>.</li>
+                <li>The system will show full reservation details.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2><span class="badge">4</span> Calculate Bill</h2>
+            <ul>
+                <li>From Menu, click <b>Calculate Bill</b>.</li>
+                <li>Enter Reservation ID.</li>
+                <li>Total bill is calculated using room type and number of nights.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2><span class="badge">5</span> View All Reservations</h2>
+            <ul>
+                <li>From Menu, click <b>View All Reservations</b>.</li>
+                <li>See all saved reservations.</li>
+                <li>Use <b>View</b> to open a reservation quickly.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2><span class="badge">6</span> Logout</h2>
+            <ul>
+                <li>Click <b>Logout</b> from the Menu when finished.</li>
+                <li>This closes your session securely.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="note">
+        <b>Tip:</b> Always double-check guest name, contact number, and check-in/check-out dates before saving.
+        This helps avoid billing mistakes and booking conflicts.
+    </div>
+
+    <div class="bottom">
+        <a class="link" href="menu">Back to Menu</a>
+    </div>
+
+</div>
+</body>
+</html>
