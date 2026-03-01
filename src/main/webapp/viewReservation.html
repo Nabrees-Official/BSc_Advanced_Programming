@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Reservation</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI', Arial, sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background: linear-gradient(135deg, #f4f7ff, #e8f0fe);
+            padding: 20px;
+        }
+
+        .card{
+            width: 520px;
+            background: #fff;
+            border-radius: 16px;
+            padding: 38px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+            animation: fadeIn .55s ease-in-out;
+        }
+
+        @keyframes fadeIn{
+            from{opacity:0; transform: translateY(18px);}
+            to{opacity:1; transform: translateY(0);}
+        }
+
+        .header{
+            text-align:center;
+            margin-bottom: 22px;
+        }
+
+        .header h2{
+            color:#1e3a8a;
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+
+        .header p{
+            color:#6b7280;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        label{
+            display:block;
+            margin-top: 14px;
+            margin-bottom: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            color:#374151;
+        }
+
+        input{
+            width:100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #d1d5db;
+            font-size: 14px;
+            transition: .25s;
+            outline:none;
+        }
+
+        input:focus{
+            border-color:#2563eb;
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+            transform: translateY(-1px);
+        }
+
+        button{
+            width:100%;
+            margin-top: 16px;
+            padding: 12px;
+            border:none;
+            border-radius: 10px;
+            background:#2563eb;
+            color:white;
+            font-size: 15px;
+            font-weight: 600;
+            cursor:pointer;
+            transition: .25s;
+        }
+
+        button:hover{
+            background:#1e40af;
+            transform: translateY(-2px);
+        }
+
+        .hint{
+            margin-top: 12px;
+            padding: 12px;
+            border-radius: 12px;
+            background: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            color:#475569;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .actions{
+            margin-top: 18px;
+            display:flex;
+            justify-content:center;
+        }
+
+        .actions a{
+            text-decoration:none;
+            color:#2563eb;
+            font-size:14px;
+            font-weight: 600;
+            transition: .2s;
+        }
+
+        .actions a:hover{
+            text-decoration: underline;
+            color:#1e40af;
+        }
+
+        @media (max-width: 560px){
+            .card{width:100%; padding: 26px;}
+        }
+    </style>
+</head>
+
+<body>
+<div class="card">
+
+    <div class="header">
+        <h2>View Reservation</h2>
+        <p>Enter the Reservation ID to view guest details, dates, and room information.</p>
+    </div>
+
+    <form method="get" action="viewReservation">
+        <label>Reservation ID</label>
+        <input type="number" name="id" placeholder="Example: 1" required>
+
+        <button type="submit">Search Reservation</button>
+    </form>
+
+    <div class="hint">
+        <b>Tip:</b> If you don’t know the ID, go to <b>View All Reservations</b> from the menu and copy the Reservation ID.
+    </div>
+
+    <div class="actions">
+        <a href="menu">← Back to Menu</a>
+    </div>
+
+</div>
+</body>
+</html>

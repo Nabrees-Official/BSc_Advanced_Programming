@@ -1,48 +1,183 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Reservation</title>
+
     <style>
-        body{font-family: Arial; padding:20px;}
-        form{max-width:500px;}
-        label{display:block; margin-top:12px; font-weight:bold;}
-        input, select{width:100%; padding:10px; margin-top:6px;}
-        button{margin-top:16px; padding:10px 16px; cursor:pointer;}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f4f7ff, #e8f0fe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 600px;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #1e3a8a;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            display: block;
+            color: #374151;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #d1d5db;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        input:focus, select:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+            outline: none;
+        }
+
+        .row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .row .form-group {
+            flex: 1;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #1e40af;
+            transform: translateY(-2px);
+        }
+
+        .footer-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .footer-link a {
+            text-decoration: none;
+            color: #2563eb;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .footer-link a:hover {
+            text-decoration: underline;
+        }
+
+        @media(max-width: 650px) {
+            .container {
+                width: 90%;
+                padding: 25px;
+            }
+
+            .row {
+                flex-direction: column;
+            }
+        }
+
     </style>
 </head>
+
 <body>
 
-<h2>Add Reservation</h2>
+<div class="container">
+    <h2>Add New Reservation</h2>
 
-<form method="post" action="addReservation">
-    <label>Guest Name</label>
-    <input type="text" name="guest_name" required>
+    <form method="post" action="addReservation">
 
-    <label>Address</label>
-    <input type="text" name="address" required>
+        <div class="form-group">
+            <label>Guest Name</label>
+            <input type="text" name="guest_name" placeholder="Enter guest name" required>
+        </div>
 
-    <label>Contact No</label>
-    <input type="text" name="contact_no" required>
+        <div class="form-group">
+            <label>Address</label>
+            <input type="text" name="address" placeholder="Enter address" required>
+        </div>
 
-    <label>Room Type</label>
-    <select name="room_type" required>
-        <option value="">--Select--</option>
-        <option value="Single">Single</option>
-        <option value="Double">Double</option>
-        <option value="Suite">Suite</option>
-    </select>
+        <div class="form-group">
+            <label>Contact No</label>
+            <input type="text" name="contact_no" placeholder="Enter contact number" required>
+        </div>
 
-    <label>Check-in Date</label>
-    <input type="date" name="check_in" required>
+        <div class="form-group">
+            <label>Room Type</label>
+            <select name="room_type" required>
+                <option value="">Select Room Type</option>
+                <option value="Single">Single</option>
+                <option value="Double">Double</option>
+                <option value="Suite">Suite</option>
+            </select>
+        </div>
 
-    <label>Check-out Date</label>
-    <input type="date" name="check_out" required>
+        <div class="row">
+            <div class="form-group">
+                <label>Check-in Date</label>
+                <input type="date" name="check_in" required>
+            </div>
 
-    <button type="submit">Save Reservation</button>
-</form>
+            <div class="form-group">
+                <label>Check-out Date</label>
+                <input type="date" name="check_out" required>
+            </div>
+        </div>
 
-<p><a href="hello">Back to Home</a></p>
+        <button type="submit">Save Reservation</button>
+
+    </form>
+
+    <div class="footer-link">
+        <a href="menu">← Back to Menu</a>
+    </div>
+</div>
 
 </body>
 </html>
