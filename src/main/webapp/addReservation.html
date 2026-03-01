@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Add Reservation</title>
+    <style>
+        body{font-family: Arial; padding:20px;}
+        form{max-width:500px;}
+        label{display:block; margin-top:12px; font-weight:bold;}
+        input, select{width:100%; padding:10px; margin-top:6px;}
+        button{margin-top:16px; padding:10px 16px; cursor:pointer;}
+    </style>
+</head>
+<body>
+
+<h2>Add Reservation</h2>
+
+<form method="post" action="addReservation">
+    <label>Guest Name</label>
+    <input type="text" name="guest_name" required>
+
+    <label>Address</label>
+    <input type="text" name="address" required>
+
+    <label>Contact No</label>
+    <input type="text" name="contact_no" required>
+
+    <label>Room Type</label>
+    <select name="room_type" required>
+        <option value="">--Select--</option>
+        <option value="Single">Single</option>
+        <option value="Double">Double</option>
+        <option value="Suite">Suite</option>
+    </select>
+
+    <label>Check-in Date</label>
+    <input type="date" name="check_in" required>
+
+    <label>Check-out Date</label>
+    <input type="date" name="check_out" required>
+
+    <button type="submit">Save Reservation</button>
+</form>
+
+<p><a href="hello">Back to Home</a></p>
+
+</body>
+</html>
