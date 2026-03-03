@@ -161,7 +161,7 @@ public class MenuServlet extends HttpServlet {
                 <div class="container">
 
                     <div class="header">
-                        <h2>Room Reservation Dashboard</h2>
+                        <h2>Ocean View Resort - Room Reservation Dashboard</h2>
                         <p>Welcome, <b>%s</b> (%s)</p>
                     </div>
 
@@ -191,10 +191,6 @@ public class MenuServlet extends HttpServlet {
                             <p>Instructions for new staff members.</p>
                         </a>
 
-                        <a href="logout" class="card" style="border:1px solid rgba(239,68,68,0.25);">
-                            <h3 style="color:#ef4444;">Quick Logout</h3>
-                            <p>End your session safely.</p>
-                        </a>
                     </div>
 
                     <div class="logout">
