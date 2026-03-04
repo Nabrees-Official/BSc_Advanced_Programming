@@ -6,12 +6,14 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.time.Year;
 
 public class MenuServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
+        // ✅ Session check (must login)
         HttpSession session = req.getSession(false);
         if (session == null || session.getAttribute("username") == null) {
             resp.sendRedirect("login.html");
@@ -20,6 +22,8 @@ public class MenuServlet extends HttpServlet {
 
         String username = session.getAttribute("username").toString();
         String role = String.valueOf(session.getAttribute("role"));
+
+        int year = Year.now().getValue(); // ✅ auto year
 
         resp.setContentType("text/html");
         resp.setCharacterEncoding("UTF-8");
@@ -44,6 +48,7 @@ public class MenuServlet extends HttpServlet {
                             min-height:100vh;
                             background: linear-gradient(135deg, #f4f7ff, #e8f0fe);
                             padding: 30px 18px;
+                            color:#111827;
                         }
 
                         .container{
@@ -64,8 +69,7 @@ public class MenuServlet extends HttpServlet {
                             border-radius: 16px;
                             box-shadow: 0 15px 40px rgba(0,0,0,0.08);
                             margin-bottom: 20px;
-
-                            text-align: center;        /* ✅ center text */
+                            text-align: center;
                         }
 
                         .header h2{
@@ -144,6 +148,25 @@ public class MenuServlet extends HttpServlet {
                             transform: translateY(-2px);
                         }
 
+                        /* ✅ Footer (copyright) */
+                        .footer{
+                            margin-top: 24px;
+                            text-align:center;
+                            color:#6b7280;
+                            font-size: 13px;
+                            padding: 12px 10px;
+                        }
+
+                        .footer a{
+                            color:#2563eb;
+                            text-decoration:none;
+                            font-weight:700;
+                        }
+
+                        .footer a:hover{
+                            text-decoration:underline;
+                        }
+
                         /* ✅ Responsive */
                         @media (max-width: 920px){
                             .cards{grid-template-columns: repeat(2, 1fr);}
@@ -190,16 +213,20 @@ public class MenuServlet extends HttpServlet {
                             <h3>Help Guide</h3>
                             <p>Instructions for new staff members.</p>
                         </a>
-
                     </div>
 
                     <div class="logout">
                         <a href="logout">Logout</a>
                     </div>
 
+                    <div class="footer">
+                        © %d Ocean View Resort. All Rights Reserved.<br>
+                        Developed by Muhammathu Nabrees
+                    </div>
+
                 </div>
                 </body>
                 </html>
-                """.formatted(username, role));
+                """.formatted(username, role, year));
     }
 }
