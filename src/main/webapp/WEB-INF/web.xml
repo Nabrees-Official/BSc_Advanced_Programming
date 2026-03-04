@@ -97,4 +97,22 @@
         <url-pattern>/listReservations</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>EditReservationServlet</servlet-name>
+        <servlet-class>com.roomreservation.controller.EditReservationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditReservationServlet</servlet-name>
+        <url-pattern>/editReservation</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteReservationServlet</servlet-name>
+        <servlet-class>com.roomreservation.controller.DeleteReservationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteReservationServlet</servlet-name>
+        <url-pattern>/deleteReservation</url-pattern>
+    </servlet-mapping>
+
 </web-app>
