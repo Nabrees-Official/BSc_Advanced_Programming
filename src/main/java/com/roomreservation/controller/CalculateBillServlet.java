@@ -89,7 +89,7 @@ public class CalculateBillServlet extends HttpServlet {
         }
     }
 
-    // ✅ Success page (Bill details)
+    // ✅ Success page (Bill details) + ✅ Print Button
     private String renderBillPage(int id, String guestName, String roomType,
                                   LocalDate checkIn, LocalDate checkOut,
                                   long nights, BigDecimal rate, BigDecimal total) {
@@ -100,21 +100,30 @@ public class CalculateBillServlet extends HttpServlet {
                     <p>Reservation ID: <b>%d</b></p>
                 </div>
 
-                <table>
-                    <tr><th>Reservation ID</th><td>%d</td></tr>
-                    <tr><th>Guest Name</th><td>%s</td></tr>
-                    <tr><th>Room Type</th><td>%s</td></tr>
-                    <tr><th>Check-in</th><td>%s</td></tr>
-                    <tr><th>Check-out</th><td>%s</td></tr>
-                    <tr><th>Nights</th><td>%d</td></tr>
-                    <tr><th>Rate per night (LKR)</th><td>%s</td></tr>
-                    <tr><th>Total (LKR)</th><td><b>%s</b></td></tr>
-                </table>
+                <div id="printArea">
+                    <table>
+                        <tr><th>Reservation ID</th><td>%d</td></tr>
+                        <tr><th>Guest Name</th><td>%s</td></tr>
+                        <tr><th>Room Type</th><td>%s</td></tr>
+                        <tr><th>Check-in</th><td>%s</td></tr>
+                        <tr><th>Check-out</th><td>%s</td></tr>
+                        <tr><th>Nights</th><td>%d</td></tr>
+                        <tr><th>Rate per night (LKR)</th><td>%s</td></tr>
+                        <tr><th>Total (LKR)</th><td><b>%s</b></td></tr>
+                    </table>
+                </div>
 
-                <div class="actions">
+                <div class="actions no-print">
+                    <button class="btn btn-print" onclick="printBill()">Print Bill</button>
                     <a class="btn btn-primary" href="calculateBill.html">Calculate Another</a>
                     <a class="btn btn-light" href="menu">Back to Menu</a>
                 </div>
+
+                <script>
+                    function printBill(){
+                        window.print();
+                    }
+                </script>
                 """.formatted(id, id, guestName, roomType, checkIn, checkOut, nights, rate, total)
                 + pageEnd();
     }
@@ -139,7 +148,7 @@ public class CalculateBillServlet extends HttpServlet {
                 + pageEnd();
     }
 
-    // ✅ Common Page Layout (same as your other servlets)
+    // ✅ Common Page Layout (same theme)
     private String pageStart(String title) {
         return """
                 <!doctype html>
@@ -235,6 +244,7 @@ public class CalculateBillServlet extends HttpServlet {
                       font-size:14px;
                       transition:.25s;
                       border:1px solid transparent;
+                      cursor:pointer;
                     }
                     .btn-primary{
                       background:#2563eb;
@@ -253,6 +263,24 @@ public class CalculateBillServlet extends HttpServlet {
                     .btn-light:hover{
                       background:#f1f5ff;
                       transform:translateY(-2px);
+                    }
+
+                    /* ✅ Print button */
+                    .btn-print{
+                      background:#10b981;
+                      color:white;
+                      box-shadow:0 10px 22px rgba(16,185,129,0.18);
+                    }
+                    .btn-print:hover{
+                      background:#059669;
+                      transform:translateY(-2px);
+                    }
+
+                    /* ✅ Hide buttons when printing */
+                    @media print{
+                      .no-print{display:none;}
+                      body{background:white;}
+                      .card{box-shadow:none;border:none;}
                     }
                   </style>
                 </head>
