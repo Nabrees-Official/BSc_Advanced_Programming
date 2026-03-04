@@ -516,6 +516,7 @@ public class ListReservationsServlet extends HttpServlet {
                 """.formatted(filterForm, bodyContent));
     }
 
+
     // -------------------------
     // Helpers
     // -------------------------
